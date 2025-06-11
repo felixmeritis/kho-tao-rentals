@@ -1,5 +1,7 @@
 /* Modern Kho Tao Accommodation Comparison - Inspired by sleek fintech design */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
 
 :root {
   /* Modern Color Palette */
@@ -37,7 +39,7 @@ body {
   min-height: 100vh;
 }
 
-/* Background with Tropical Theme */
+/* Background with Tropical Beach Theme */
 .background-container {
   position: fixed;
   top: 0;
@@ -53,35 +55,25 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-/* 
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0f766e 50%, #065f46 75%, #064e3b 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite; */
+  background-image: url('./Assets/Images/tom-winckels-I7oLRdM9YIw-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Fallback gradient in case image doesn't load */
+  background-color: #0f172a;
 }
 
-/* .background-image::before {
+.background-image::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.2) 0%, transparent 50%);
-  animation: floatBubbles 20s ease-in-out infinite;
-} */
+  /* Dark overlay to ensure text readability */
+  background: rgba(0, 0, 0, 0.4);
+}
 
-/* .background-blur {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(100px);
-  -webkit-backdrop-filter: blur(100px);
-} */
 
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
@@ -111,13 +103,17 @@ body {
   75% { transform: translateX(5px); }
 }
 
-/* App Container */
+/* App Container - Centered with 50vw width */
 #app {
   min-height: 100vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-width: 50vw;
+  margin: 0 auto;
+  /* Ensure content doesn't get too narrow on smaller screens */
+  min-width: 800px;
 }
 
 /* Modern Header */
@@ -572,9 +568,18 @@ input::placeholder {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  #app {
+    max-width: 70vw;
+    min-width: 600px;
+  }
+}
+
 @media (max-width: 768px) {
   #app {
     padding: 1rem;
+    max-width: 95vw;
+    min-width: unset;
   }
 
   .header-content {

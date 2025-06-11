@@ -13,6 +13,7 @@ export let accommodations = [
     notes: "Current accommodation"
   },
   {
+    
     name: "Kho Tao Heights",
     totalPrice: 1500,
     currency: "THB",
